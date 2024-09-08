@@ -1,70 +1,92 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Weather App
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+The Weather App provides real-time weather information for cities around the world. Users can select a city from a dropdown menu, view weather details, and see the location on a map. The application is built using React for the frontend and integrates with a weather API to fetch weather data.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **City Search**: Search for cities using a dropdown menu.
+- **Weather Details**: View current weather conditions including temperature, description, humidity, wind speed, and pressure.
+- **Weather Icons**: Display weather conditions with appropriate icons.
+- **Map Integration**: View the location of the selected city on an interactive map.
+- **Responsive Design**: The app is responsive and works on both desktop and mobile devices.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- **Frontend**: React, React Router, React-Leaflet
+- **Backend**: Weather API (for fetching weather data)
+- **Styling**: CSS for styling and responsiveness
+- **Libraries**: react-select, Leaflet
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup and Installation
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js and npm installed on your machine.
+- A valid API key for the weather API.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone the Repository**
 
-### `npm run eject`
+   git clone https://github.com/JayaramHarry/Weather-Forecast-Intellik.git
+   cd intellik_weather_assignment
+   
+   
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Install Dependencies**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   npm install
+   
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Setup Environment Variables**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   Create a `.env` file in the root of the project and add your API key:
 
-## Learn More
+   env
+   REACT_APP_WEATHER_API_KEY=your_api_key_here
+   
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. **Run the Application**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   npm start
+   
 
-### Code Splitting
+   This will start the development server and you can view the application at `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Components
 
-### Analyzing the Bundle Size
+### `CitiesList`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Displays a searchable dropdown to select cities.
+- Loads cities dynamically based on user input.
+- Navigates to the weather details page for the selected city.
 
-### Making a Progressive Web App
+### `WeatherPage`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Shows weather details for a selected city.
+- Displays an image representing the current weather condition.
+- Shows the location of the city on a map.
 
-### Advanced Configuration
+## CSS Styling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **`.cities-list`**: Styles for the city search and list table.
+- **`.weather-page`**: Styles for the weather details page, including background images and map container.
+- **`.weather-info`**: Styles for weather information display.
+- **`.map-container`**: Ensures the map takes up 100% width and adjusts to screen size.
 
-### Deployment
+## API Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The application uses the Weather API to fetch weather data. Ensure that your API key is valid and correctly configured in the `.env` file.
 
-### `npm run build` fails to minify
+**Example API Request:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+const fetchWeatherData = async (lat, lon) => {
+  const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${lat},${lon}`);
+  const data = await response.json();
+  return data;
+};
+
+

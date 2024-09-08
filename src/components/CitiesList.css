@@ -1,0 +1,86 @@
+/* General styles for the Cities List */
+.cities-list {
+  padding: 20px;
+  max-width: 1200px; /* Restricts maximum width */
+  margin: auto; /* Centers the container */
+  box-sizing: border-box;
+}
+
+/* Styles for the search input */
+.cities-list .react-select__control {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Table styles */
+.cities-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Table header styles */
+.cities-list th {
+  background-color: #f4f4f4;
+  color: #333;
+  cursor: pointer;
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+/* Table data cell styles */
+.cities-list td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Hover effect for rows */
+.cities-list tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Loading spinner styles */
+.cities-list .loading {
+  text-align: center;
+  padding: 20px;
+  color: #555;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .cities-list {
+    padding: 10px;
+  }
+
+  .cities-list .react-select__control {
+    margin-bottom: 15px;
+  }
+
+  .cities-list th, .cities-list td {
+    padding: 8px;
+  }
+
+  .cities-list table {
+    font-size: 14px; /* Smaller text on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .cities-list {
+    padding: 5px;
+  }
+
+  .cities-list .react-select__control {
+    margin-bottom: 10px;
+  }
+
+  .cities-list th, .cities-list td {
+    padding: 6px;
+  }
+
+  .cities-list table {
+    font-size: 12px; /* Even smaller text for very small screens */
+  }
+}
