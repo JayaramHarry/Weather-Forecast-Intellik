@@ -91,7 +91,7 @@ const CitiesList = () => {
             <th onClick={() => handleSort('name')}>City</th>
             <th onClick={() => handleSort('cou_name_en')}>Country</th>
             <th onClick={() => handleSort('timezone')}>Timezone</th>
-            <th>Weather (High/Low)</th> {/* New column for weather */}
+            <th>Weather (High/Low)</th>
           </tr>
         </thead>
         <tbody>
